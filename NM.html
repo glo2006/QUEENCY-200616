@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hospital Appointment Booking & Reporting</title>
+<link rel="stylesheet" href="NM.css" />
+  <script src="NM.js" defer></script>
+  
+</head>
+<body>
+
+<h2>Hospital Appointment Booking & Management</h2>
+
+<form id="bookingForm" aria-label="Appointment booking form">
+  <label for="patientName">Patient Name</label>
+  <input type="text" id="patientName" required placeholder="Enter patient full name" />
+
+  <label for="branch">Hospital Branch</label>
+  <select id="branch" required>
+    <option value="">Select Branch</option>
+    <option value="1">Central Hospital</option>
+    <option value="2">Northside Clinic</option>
+  </select>
+
+  <label for="department">Department</label>
+  <select id="department" required disabled>
+    <option value="">Select Department</option>
+  </select>
+
+  <label for="doctor">Doctor</label>
+  <select id="doctor" required disabled>
+    <option value="">Select Doctor</option>
+  </select>
+
+  <label for="appointmentTime">Appointment Date & Time</label>
+  <input type="datetime-local" id="appointmentTime" required min="" />
+
+  <label for="appointmentAction">Appointment Action</label>
+  <select id="appointmentAction" required>
+    <option value="book">Book New Appointment</option>
+    <option value="cancel">Cancel Appointment</option>
+    <option value="reschedule">Reschedule Appointment</option>
+  </select>
+
+  <label for="existingAppointmentId" id="existingAppointmentLabel" style="display:none;">Existing Appointment ID (for cancel/reschedule)</label>
+  <input type="text" id="existingAppointmentId" placeholder="Enter Appointment ID" style="display:none;" />
+
+  <button type="submit">Submit</button>
+</form>
+
+<div id="message" class="message" style="display:none;" role="alert"></div>
+
+<section class="report-section" aria-label="Reports">
+  <h3>Reports</h3>
+  <button id="loadReportsBtn" type="button">Load Doctor Workload & Appointment Trends</button>
+  <div id="reports" aria-live="polite" style="margin-top:1rem;"></div>
+</section>
+
+
+
+</body>
+</html>
